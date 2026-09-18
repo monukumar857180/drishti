@@ -182,7 +182,14 @@ export const Header = ({ onToggleSidebar, projects = [], alerts = [] }) => {
           </button>
 
           {showNotifications && (
-            <div className="dropdown-menu notif-dropdown">
+            <div 
+              className="dropdown-menu notif-dropdown"
+              style={{ 
+                right: 0, 
+                left: 'auto',
+                maxWidth: 'min(320px, calc(100vw - 16px))'
+              }}
+            >
               <div className="dropdown-header">
                 Notifications (3 New)
               </div>

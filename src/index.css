@@ -434,9 +434,13 @@ input, select, textarea {
   border-radius: var(--radius-md);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   min-width: 220px;
-  z-index: 100;
+  max-width: calc(100vw - 24px);
+  z-index: 200;
   padding: 6px;
   overflow: hidden;
+  /* Prevent left overflow on small screens */
+  left: auto;
+  right: 0;
 }
 
 .dropdown-header {
@@ -468,6 +472,7 @@ input, select, textarea {
 
 .notif-dropdown {
   width: 320px;
+  max-width: calc(100vw - 24px);
 }
 
 .notif-item {
@@ -1330,5 +1335,38 @@ input, select, textarea {
     flex-direction: column;
     align-items: flex-start;
     padding: 20px 16px;
+  }
+
+  /* Fix header right side on mobile */
+  .header-right {
+    gap: 10px;
+  }
+
+  /* Hide 'Government' text label on mobile, show only avatar */
+  .user-label {
+    display: none;
+  }
+
+  /* Notification dropdown — pin to right edge, never overflow left */
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+    max-width: calc(100vw - 16px);
+  }
+
+  .notif-dropdown {
+    width: min(320px, calc(100vw - 16px));
+    right: 0;
+    left: auto;
+  }
+
+  /* Search box compact on mobile */
+  .search-box {
+    padding: 6px 10px;
+  }
+
+  /* Quick actions 2x2 stays but slightly smaller padding */
+  .quick-action-btn {
+    padding: 16px 10px;
   }
 }
